@@ -1,0 +1,25 @@
+<div class="client-list">
+  <h2>Lista de Clientes</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Teléfono</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients">
+        <td>{{ client.idUsuario }}</td>
+        <td>{{ client.nombreCompleto }}</td>
+        <td>{{ client.correoElectronico }}</td>
+        <td>{{ client.telefono }}</td>
+        <td>
+          <button (click)="viewDetails(client.idUsuario)">Ver Detalles</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

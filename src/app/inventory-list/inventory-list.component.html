@@ -1,0 +1,32 @@
+<div class="inventory-list">
+  <h2>Lista de Equipos</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Modelo</th>
+        <th>Descripción</th>
+        <th>Fecha de Registro</th>
+        <th>Estado</th>
+        <th>Peso</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let equipment of equipmentList">
+        <td>{{ equipment.idEquipment }}</td>
+        <td>{{ equipment.name }}</td>
+        <td>{{ equipment.model }}</td>
+        <td>{{ equipment.description }}</td>
+        <td>{{ equipment.registrationDate || 'No registrada' }}</td>
+        <td>{{ equipment.state }}</td>
+        <td>{{ equipment.weight }} libras</td>
+        <td>
+          <button (click)="viewDetails(equipment.idEquipment)">Ver Detalles</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

@@ -1,0 +1,60 @@
+.menu-container {
+    display: flex;
+    flex-direction: column; /* Coloca los botones en una columna */
+    align-items: center;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .menu-button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .menu-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .menu-button:focus {
+    outline: none;
+    box-shadow: 0 0 4px #0056b3;
+  }
+  .menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007BFF;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .menu-header span {
+    font-weight: bold;
+  }
+  
+  .logout-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  .logout-button:hover {
+    background-color: #c82333;
+  }
+  

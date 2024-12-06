@@ -1,0 +1,39 @@
+<div [ngStyle]="{ 'background-color': '#f4f4f4' }">
+  <h2>Detalles del Equipo</h2>
+  <div *ngIf="equipmentData; else noData">
+    <table>
+      <tr>
+        <th>ID</th>
+        <td>{{ equipmentData.idEquipment }}</td>
+      </tr>
+      <tr>
+        <th>Nombre</th>
+        <td>{{ equipmentData.name }}</td>
+      </tr>
+      <tr>
+        <th>Modelo</th>
+        <td>{{ equipmentData.model }}</td>
+      </tr>
+      <tr>
+        <th>Descripción</th>
+        <td>{{ equipmentData.description }}</td>
+      </tr>
+      <tr>
+        <th>Fecha de Registro</th>
+        <td>{{ equipmentData.registrationDate }}</td>
+      </tr>
+      <tr>
+        <th>Estado</th>
+        <td>{{ equipmentData.state }}</td>
+      </tr>
+      <tr>
+        <th>Peso</th>
+        <td>{{ equipmentData.weight }} kg</td>
+      </tr>
+    </table>
+    <button (click)="goBack()">Regresar al listado</button>
+  </div>
+  <ng-template #noData>
+    <p>No se encontró información para este equipo.</p>
+  </ng-template>
+</div>

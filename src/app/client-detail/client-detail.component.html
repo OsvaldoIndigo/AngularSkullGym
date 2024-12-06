@@ -1,0 +1,72 @@
+<div [ngStyle]="{ 'background-color': '#f4f4f4' }">
+  <h2>Client Detail!</h2>
+
+  <div *ngIf="clientData">
+    <h2>Detalles del Cliente</h2>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- ID Usuario Column -->
+      <ng-container matColumnDef="idUsuario">
+        <th mat-header-cell *matHeaderCellDef>ID Usuario</th>
+        <td mat-cell *matCellDef="let element">{{ element.idUsuario }}</td>
+      </ng-container>
+
+      <!-- Nombre Completo Column -->
+      <ng-container matColumnDef="nombreCompleto">
+        <th mat-header-cell *matHeaderCellDef>Nombre Completo</th>
+        <td mat-cell *matCellDef="let element">{{ element.nombreCompleto }}</td>
+      </ng-container>
+
+      <!-- Correo Electrónico Column -->
+      <ng-container matColumnDef="correoElectronico">
+        <th mat-header-cell *matHeaderCellDef>Correo Electrónico</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.correoElectronico }}
+        </td>
+      </ng-container>
+
+      <!-- Teléfono Column -->
+      <ng-container matColumnDef="telefono">
+        <th mat-header-cell *matHeaderCellDef>Teléfono</th>
+        <td mat-cell *matCellDef="let element">{{ element.telefono }}</td>
+      </ng-container>
+
+      <!-- Fecha de Nacimiento Column -->
+      <ng-container matColumnDef="fechaNacimiento">
+        <th mat-header-cell *matHeaderCellDef>Fecha de Nacimiento</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.fechaNacimiento }}
+        </td>
+      </ng-container>
+
+      <!-- Dirección Column -->
+      <ng-container matColumnDef="direccion">
+        <th mat-header-cell *matHeaderCellDef>Dirección</th>
+        <td mat-cell *matCellDef="let element">{{ element.direccion }}</td>
+      </ng-container>
+
+      <!-- Tipo de Membresía Column -->
+      <ng-container matColumnDef="tipoMembresia">
+        <th mat-header-cell *matHeaderCellDef>Tipo de Membresía</th>
+        <td mat-cell *matCellDef="let element">{{ element.tipoMembresia }}</td>
+      </ng-container>
+
+      <!-- Fecha de Inicio de Membresía Column -->
+      <ng-container matColumnDef="fechaInicioMembresia">
+        <th mat-header-cell *matHeaderCellDef>Fecha de Inicio de Membresía</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.fechaInicioMembresia }}
+        </td>
+      </ng-container>
+
+      <!-- Dinámica de Entrenamiento Column -->
+      <ng-container matColumnDef="TipoDinamica">
+        <th mat-header-cell *matHeaderCellDef>Dinamica de Entrenamiento</th>
+        <td mat-cell *matCellDef="let element">{{ element.TipoDinamica }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>

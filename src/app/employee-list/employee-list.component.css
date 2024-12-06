@@ -1,0 +1,33 @@
+.client-list {
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #007BFF;
+  color: white;
+}
+
+td, th {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

@@ -21,8 +21,9 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
+              "src/skull2R.ico",
               "src/assets"
+          
             ],
             "styles": [
               "src/styles.css"
@@ -85,7 +86,7 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
-              "src/favicon.ico",
+              "src/skull2R.ico",
               "src/assets"
             ],
             "styles": [
@@ -96,5 +97,10 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "7f22bacf-402e-447b-93af-58abccca0332"
   }
+  
 }
+

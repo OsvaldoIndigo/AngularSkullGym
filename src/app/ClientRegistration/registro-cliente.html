@@ -1,0 +1,94 @@
+<h1>Bienvenido</h1>
+
+<div class="container">
+    <h2>Registro de Cliente</h2>
+    <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="idUsuario">ID de Usuario:</label>
+        <input id="idUsuario" formControlName="idUsuario" type="text">
+        <div *ngIf="registroForm.get('idUsuario')?.invalid && registroForm.get('idUsuario')?.touched">
+          ID de usuario es requerido.
+        </div>
+      </div>
+  
+      <div>
+        <label for="nombreCompleto">Nombre Completo:</label>
+        <input id="nombreCompleto" formControlName="nombreCompleto" type="text">
+        <div *ngIf="registroForm.get('nombreCompleto')?.invalid && registroForm.get('nombreCompleto')?.touched">
+          Nombre completo es requerido.
+        </div>
+      </div>
+  
+      <div>
+        <label for="correoElectronico">Correo Electrónico:</label>
+        <input id="correoElectronico" formControlName="correoElectronico" type="email">
+        <div *ngIf="registroForm.get('correoElectronico')?.invalid && registroForm.get('correoElectronico')?.touched">
+          <span *ngIf="registroForm.get('correoElectronico')?.errors?.['required']">Correo es requerido.</span>
+          <span *ngIf="registroForm.get('correoElectronico')?.errors?.['email']">Formato inválido.</span>
+        </div>
+      </div>
+  
+      <div>
+        <label for="telefono">Teléfono:</label>
+        <input id="telefono" formControlName="telefono" type="tel">
+        <div *ngIf="registroForm.get('telefono')?.invalid && registroForm.get('telefono')?.touched">
+          <span *ngIf="registroForm.get('telefono')?.errors?.['required']">Teléfono es requerido.</span>
+          <span *ngIf="registroForm.get('telefono')?.errors?.['pattern']">Debe tener 10 dígitos.</span>
+        </div>
+      </div>
+  
+      <div>
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input id="fechaNacimiento" formControlName="fechaNacimiento" type="date">
+        <div *ngIf="registroForm.get('fechaNacimiento')?.invalid && registroForm.get('fechaNacimiento')?.touched">
+          Fecha de nacimiento es requerida.
+        </div>
+      </div>
+  
+      <div>
+        <label for="direccion">Dirección:</label>
+        <textarea id="direccion" formControlName="direccion"></textarea>
+        <div *ngIf="registroForm.get('direccion')?.invalid && registroForm.get('direccion')?.touched">
+          Dirección es requerida.
+        </div>
+      </div>
+  
+      <div>
+        <label for="tipoMembresia">Tipo de Membresía:</label>
+        <select id="tipoMembresia" formControlName="tipoMembresia">
+          <option value="">Seleccionar</option>
+          <option value="Dia">Dia</option>
+          <option value="Básica">Mensual</option>
+          <option value="Premium">Anual</option>
+          <option value="VIP">VIP</option>
+        </select>
+        <div *ngIf="registroForm.get('tipoMembresia')?.invalid && registroForm.get('tipoMembresia')?.touched">
+          Tipo de membresía es requerida.
+        </div>
+      </div>
+      <div>
+        <label for="TipoDinamica">Dinamicas De Entrenamiento:</label>
+        <select id="TipoDinamica" formControlName="TipoDinamica">
+          <option value="">Seleccionar</option>
+          <option value="Entrenamiento">Entrenamieto</option>
+          <option value="Yoga">Yoga</option>
+          <option value="Zumba">Zumba</option>
+       
+        </select>
+        <div *ngIf="registroForm.get('tipoMembresia')?.invalid && registroForm.get('tipoMembresia')?.touched">
+          Dinamica De Entrenamiento Requerida.
+        </div>
+      </div>
+
+      <div>
+        <label for="fechaInicioMembresia">Fecha de Inicio de Membresía:</label>
+        <input id="fechaInicioMembresia" formControlName="fechaInicioMembresia" type="date">
+        <div *ngIf="registroForm.get('fechaInicioMembresia')?.invalid && registroForm.get('fechaInicioMembresia')?.touched">
+          Fecha de inicio es requerida.
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="registroForm.invalid">Registrar Cliente</button>
+    </form>
+  </div>
+  

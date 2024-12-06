@@ -1,0 +1,59 @@
+<div class="registro-container">
+  <h2>Registro de Empleado</h2>
+  <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="idCollaborating">ID de Empleado:</label>
+      <input formControlName="idCollaborating" id="idCollaborating" type="text" required />
+    </div>
+
+    <div class="form-group">
+      <label for="nameCollaborating">Nombre Completo:</label>
+      <input formControlName="nameCollaborating" id="nameCollaborating" type="text" required />
+    </div>
+
+    <div class="form-group">
+      <label for="roleCollaborating">Rol en la Empresa:</label>
+      <select formControlName="roleCollaborating" id="roleCollaborating" required>
+        <option value="" disabled selected>Seleccione un rol</option>
+        <option value="entrenador">Entrenador</option>
+        <option value="mantenimiento">Mantenimiento</option>
+        <option value="recepcion">Recepción</option>
+        <option value="limpieza">Limpieza</option>
+        <option value="administrador">Administrador</option>
+      </select>
+    </div>
+    
+
+    <div class="form-group">
+      <label for="correoElectronico">Correo Electrónico:</label>
+      <input formControlName="correoElectronico" id="correoElectronico" type="email" required />
+    </div>
+
+    <div class="form-group">
+      <label for="telefono">Teléfono:</label>
+      <input formControlName="telefono" id="telefono" type="text" required />
+    </div>
+
+    <div class="form-group">
+      <label for="birthdateCollaborating">Fecha de Nacimiento:</label>
+      <input formControlName="birthdateCollaborating" id="birthdateCollaborating" type="date" required />
+    </div>
+
+    <div class="form-group">
+      <label for="directionCollaborating">Dirección:</label>
+      <input formControlName="directionCollaborating" id="directionCollaborating" type="text" required />
+    </div>
+
+    <div class="form-group">
+      <label for="salaryCollaborating">Salario:</label>
+      <input formControlName="salaryCollaborating" id="salaryCollaborating" type="number" required />
+    </div>
+
+    <div class="form-group">
+      <label for="dateOfEntry">Fecha de Ingreso:</label>
+      <input formControlName="dateOfEntry" id="dateOfEntry" type="date" required />
+    </div>
+
+    <button type="submit" [disabled]="registroForm.invalid">Registrar Empleado</button>
+  </form>
+</div>

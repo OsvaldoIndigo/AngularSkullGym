@@ -1,0 +1,13 @@
+<div class="menu-header">
+  <span>Usuario: {{ loggedUser }}</span>
+  <button class="logout-button" (click)="logout()">Cerrar sesión</button>
+</div>
+
+<div class="menu-container">
+  <button class="menu-button" (click)="navigateTo('registro-colaborador')">Registrar Empleado</button>
+  <button class="menu-button" (click)="navigateTo('registro-cliente')">Registrar Cliente</button>
+  <button class="menu-button" (click)="navigateTo('inventory')">Inventarios</button>
+  <button class="menu-button" (click)="navigateTo('employee-list')">Lista de Empleados</button>
+  <button class="menu-button" (click)="navigateTo('client-list')">Lista de Clientes</button>
+  <button class="menu-button" (click)="navigateTo('inventory-list')">Lista de Inventarios</button>
+</div>

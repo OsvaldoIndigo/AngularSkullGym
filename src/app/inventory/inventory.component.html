@@ -1,0 +1,75 @@
+<h2>Registro de Equipos</h2>
+<form
+  (ngSubmit)="registerEquipment()"
+  #equipmentForm="ngForm"
+  class="equipment-form"
+>
+  <div class="form-group">
+    <label for="idEquipment">ID del Equipo:</label>
+    <input id="idEquipment" type="text" [(ngModel)]="equipment.idEquipment" name="idEquipment" required />
+  </div>
+
+  <div class="form-group">
+    <label for="name">Nombre del Equipo:</label>
+    <input
+      id="name"
+      type="text"
+      [(ngModel)]="equipment.name"
+      name="name"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="model">Modelo:</label>
+    <input
+      id="model"
+      type="text"
+      [(ngModel)]="equipment.model"
+      name="model"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="description">Descripción:</label>
+    <textarea
+      id="description"
+      [(ngModel)]="equipment.description"
+      name="description"
+    ></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="registrationDate">Fecha de Registro:</label>
+    <input
+      id="registrationDate"
+      type="date"
+      [(ngModel)]="equipment.registrationDate"
+      name="registrationDate"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="state">Estado:</label>
+    <select id="state" [(ngModel)]="equipment.state" name="state" required>
+      <option value="">Selecciona</option>
+      <option value="nuevo">Nuevo</option>
+      <option value="usado">Usado</option>
+      <option value="reacondicionado">Reacondicionado</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="weight">Peso (libras):</label>
+    <input
+      id="weight"
+      type="number"
+      [(ngModel)]="equipment.weight"
+      name="weight"
+      required
+    />
+  </div>
+
+  <button type="submit" class="submit-button">Registrar Equipo</button>
+</form>
