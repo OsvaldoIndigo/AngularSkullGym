@@ -1,6 +1,41 @@
-h2{
-    color: blueviolet;
-}
-table {
-    width: 100%;
+/* Contenedor principal */
+div[ngStyle] {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   }
+  
+  /* Encabezado */
+  h2 {
+    color: #333;
+    margin-bottom: 16px;
+  }
+  
+  /* Tabla */
+  table.mat-elevation-z8 {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  
+  /* Cabecera de la tabla */
+  th.mat-header-cell {
+    background-color: #6200ea; /* Cambia según tu diseño */
+    color: white;
+    text-align: left;
+    padding: 10px;
+    font-weight: bold;
+  }
+  
+  /* Celdas de datos */
+  td.mat-cell {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Filas de la tabla */
+  tr.mat-row:hover {
+    background-color: #f1f1f1; /* Efecto hover */
+  }
+  
