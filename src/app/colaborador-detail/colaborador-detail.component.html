@@ -2,24 +2,24 @@
     <h2>Detalles del Empleado</h2>
   
     <table *ngIf="colabData" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <ng-container matColumnDef="idCollaborating">
+      <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>ID</th>
-        <td mat-cell *matCellDef="let element">{{ element.idCollaborating }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
       </ng-container>
   
-      <ng-container matColumnDef="nameCollaborating">
+      <ng-container matColumnDef="nombre_completo">
         <th mat-header-cell *matHeaderCellDef>Nombre Completo</th>
-        <td mat-cell *matCellDef="let element">{{ element.nameCollaborating }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.nombre_completo }}</td>
       </ng-container>
   
-      <ng-container matColumnDef="roleCollaborating">
+      <ng-container matColumnDef="rol_empresa">
         <th mat-header-cell *matHeaderCellDef>Rol en la Empresa</th>
-        <td mat-cell *matCellDef="let element">{{ element.roleCollaborating }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.rol_empresa }}</td>
       </ng-container>
   
-      <ng-container matColumnDef="emailColab">
+      <ng-container matColumnDef="correo_electronico">
         <th mat-header-cell *matHeaderCellDef>Correo Electrónico</th>
-        <td mat-cell *matCellDef="let element">{{ element.emailColab }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.correo_electronico }}</td>
       </ng-container>
   
       <ng-container matColumnDef="telefono">
@@ -27,24 +27,24 @@
         <td mat-cell *matCellDef="let element">{{ element.telefono }}</td>
       </ng-container>
   
-      <ng-container matColumnDef="birthdateCollaborating">
+      <ng-container matColumnDef="fecha_nacimiento">
         <th mat-header-cell *matHeaderCellDef>Fecha de Nacimiento</th>
-        <td mat-cell *matCellDef="let element">{{ element.birthdateCollaborating }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.fecha_nacimiento }}</td>
       </ng-container>
   
-      <ng-container matColumnDef="directionCollaborating">
+      <ng-container matColumnDef="direccion">
         <th mat-header-cell *matHeaderCellDef>Dirección</th>
-        <td mat-cell *matCellDef="let element">{{ element.directionCollaborating }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.direccion }}</td>
       </ng-container>
   
-      <ng-container matColumnDef="salaryCollaborating">
+      <ng-container matColumnDef="salario">
         <th mat-header-cell *matHeaderCellDef>Salario</th>
-        <td mat-cell *matCellDef="let element">{{ element.salaryCollaborating }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.salario }}</td>
       </ng-container>
   
-      <ng-container matColumnDef="dateOfEntry">
+      <ng-container matColumnDef="fecha_ingreso">
         <th mat-header-cell *matHeaderCellDef>Fecha de Ingreso</th>
-        <td mat-cell *matCellDef="let element">{{ element.dateOfEntry }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.fecha_ingreso }}</td>
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

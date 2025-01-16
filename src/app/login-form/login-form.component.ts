@@ -1,28 +1,40 @@
 import { Component } from '@angular/core';
-import { RouterOutlet,Router,Routes,RouterModule} from '@angular/router';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http'; // Importar HttpClientModule
 
 @Component({
   selector: 'app-login-form',
   standalone: true,
-  imports: [RouterOutlet, FormsModule,CommonModule,RouterModule],
+  imports: [FormsModule, CommonModule, HttpClientModule], // Incluir HttpClientModule
   templateUrl: './login-form.component.html',
-  styleUrl: './login-form.component.css'
+  styleUrls: ['./login-form.component.css'],
 })
 export class LoginFormComponent {
   idAdmin: string = '';
   password: string = '';
-    
-    constructor(private router: Router) {} // Inyectar el Router en el constructor
-  
-    onLogin() {
-      if (this.idAdmin === '123456' && this.password === '54321') {
-        // Redirigir al componente de registro de cliente si las credenciales son correctas
-        this.router.navigate(['/menu-services']);
-      } else {
-        console.log('Credenciales incorrectas');
-      }
-    }
 
+  constructor(private router: Router, private http: HttpClient) {}
+
+  onLogin() {
+    const loginData = {
+      correoElectronico: this.idAdmin,
+      contrasena: this.password,
+    };
+
+    this.http.post('http://localhost:3000/login', loginData).subscribe({
+      next: (response: any) => {
+        console.log('Login exitoso:', response);
+
+        // Redirigir al componente si el login es exitoso
+        this.router.navigate(['/menu-services']);
+      },
+      error: (error) => {
+        console.error('Error en el login:', error);
+        alert('Credenciales incorrectas o error en el servidor.');
+      },
+    });
+  }
 }

@@ -15,7 +15,7 @@ export class CollaboratingService {
   // Obtener colaborador por ID
   getColabById(idCollaborating: string): Collaborating | null {
     const colaboradores = this.getAllCollaborators();
-    return (colaboradores.find((colab) => colab.idCollaborating === idCollaborating) || null );
+    return (colaboradores.find((colab) => colab.id === idCollaborating) || null );
   }
   // Obtener todos los colaboradores
   getAllCollaborators(): Collaborating[] {

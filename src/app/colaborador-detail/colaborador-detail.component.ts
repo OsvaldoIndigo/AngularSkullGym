@@ -4,59 +4,50 @@ import { ActivatedRoute } from '@angular/router';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { CollaboratingService } from '../registro-colaborador/empleadoServices';
 
 export interface Collaborating {
-  idCollaborating: string;
-  nameCollaborating: string;
-  roleCollaborating: string;
-  emailColab: string; // Cambiado
-  telefono: string;          // Cambiado
-  birthdateCollaborating: string;
-  directionCollaborating: string;
-  salaryCollaborating: string;
-  dateOfEntry: string;
+  id: string;
+  nombre_completo: string;
+  correo_electronico: string;
+  contrasena: string;
+  telefono: string;
+  fecha_nacimiento: string;
+  direccion: string;
+  tipo_usuario: string;
+  rol_empresa: string;
+  salario: string;
+  fecha_ingreso: string;
 }
+
 @Component({
   selector: 'app-colaborador-detail',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatButtonModule, MatInputModule,],
+  imports: [CommonModule, MatTableModule, MatButtonModule, MatInputModule],
   templateUrl: './colaborador-detail.component.html',
   styleUrl: './colaborador-detail.component.css'
 })
-export class CollaboratingDetailComponent implements OnInit{
+export class CollaboratingDetailComponent implements OnInit {
   public colabData: Collaborating | null = null;
   public displayedColumns: string[] = [
-    'idCollaborating',
-    'nameCollaborating',
-    'roleCollaborating',
-    'emailColab',
+    'id',
+    'nombre_completo',
+    'correo_electronico',
+    'contrasena',
     'telefono',
-    'birthdateCollaborating',
-    'directionCollaborating',
-    'salaryCollaborating',
-    'dateOfEntry'
+    'fecha_nacimiento',
+    'direccion',
+    'tipo_usuario',
+    'rol_empresa',
+    'salario',
+    'fecha_ingreso'
   ];
   public dataSource: Collaborating[] = [];
-  constructor(private route: ActivatedRoute, private collaboratingService: CollaboratingService) {
 
-  }
+  constructor(private route: ActivatedRoute) {}
+
   ngOnInit() {
-    const idCollaborating = this.route.snapshot.paramMap.get('id');
-    this.loadCollaboratingDetails(idCollaborating);
+    const id = this.route.snapshot.paramMap.get('id');
   }
 
-  
-  loadCollaboratingDetails(idCollaborating: string | null) {
-    if (idCollaborating) {
-      this.colabData = this.collaboratingService.getColabById(idCollaborating);
-      if (this.colabData) {
-        this.dataSource = [this.colabData];
-      } else {
-        alert('No se encontró el empleado con el ID proporcionado.');
-      }
-    } else {
-      alert('No se proporcionó un ID de colaborador.');
-    }
-  }
+
 }
