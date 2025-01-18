@@ -12,12 +12,12 @@
       </thead>
       <tbody>
         <tr *ngFor="let employee of colaboradores">
-          <td>{{ employee.idCollaborating }}</td>
-          <td>{{ employee.nameCollaborating }}</td>
-          <td>{{ employee.emailColab }}</td>
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.nombre_completo }}</td>
+          <td>{{ employee.correo_electronico }}</td> 
           <td>{{ employee.telefono }}</td>
           <td>
-            <button (click)="viewDetails(employee.idCollaborating)">Ver Detalles</button>
+            <button (click)="viewDetails(employee.id)">Ver Detalles</button>
           </td>
         </tr>
       </tbody>

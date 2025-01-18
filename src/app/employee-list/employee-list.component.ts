@@ -3,10 +3,15 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Collaborating } from '../colaborador-detail/colaborador-detail.component';
 import { CollaboratingService } from '../registro-colaborador/empleadoServices';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { HttpClientModule } from '@angular/common/http';
+
 @Component({
-  selector: 'app-employee-list',
+  selector: 'app-colaborador-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatTableModule, MatButtonModule, MatInputModule, HttpClientModule],
   templateUrl: './employee-list.component.html',
   styleUrl: './employee-list.component.css',
 })
@@ -23,6 +28,11 @@ export class EmployeeListComponent {
   }
 
   loadCollaborating() {
+
+
+    
+
+
     this.colaboradores = this.CollaboratingService.getAllCollaborators();
   }
 
