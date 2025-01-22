@@ -1,6 +1,10 @@
 <div class="client-list">
   <h2>Lista de Clientes</h2>
-  <table>
+
+  <div *ngIf="isLoading">Cargando clientes...</div>
+  <div *ngIf="!isLoading && clients.length === 0">No hay clientes registrados.</div>
+
+  <table *ngIf="!isLoading && clients.length > 0">
     <thead>
       <tr>
         <th>ID</th>
@@ -12,12 +16,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let client of clients">
-        <td>{{ client.idUsuario }}</td>
-        <td>{{ client.nombreCompleto }}</td>
-        <td>{{ client.correoElectronico }}</td>
+        <td>{{ client.id }}</td>
+        <td>{{ client.nombre_completo }}</td>
+        <td>{{ client.correo_electronico }}</td>
         <td>{{ client.telefono }}</td>
         <td>
-          <button (click)="viewDetails(client.idUsuario)">Ver Detalles</button>
+          <button (click)="viewDetails(client.id)">Ver Detalles</button>
+          <button (click)="deleteClient(client.id)">Eliminar</button>
         </td>
       </tr>
     </tbody>

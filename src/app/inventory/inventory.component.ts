@@ -1,6 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { InventoryServices } from '../inventory-list/inventoryServices';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,51 +13,60 @@ import { Router } from '@angular/router';
 export class InventoryComponent {
   @Output() equipmentRegistered = new EventEmitter<any>();
 
+  private apiUrl = 'http://localhost:3000/crear-equipos';
+
   // Modelo para los datos del equipo
   equipment = {
-    idEquipment: '',
     name: '',
     model: '',
     description: '',
-    registrationDate: '',
     state: '',
     weight: '', // Inicializar como un número
   };
 
   constructor(
-    private inventoryService: InventoryServices,
-    private router: Router
+    private router: Router,
+    private http: HttpClient, // HttpClient injection
+    
   ) {} // Arreglo para almacenar los equipos registrados
   registerEquipment() {
     if (
-      this.equipment.idEquipment&&
       this.equipment.name &&
       this.equipment.model &&
       this.equipment.state &&
       this.equipment.weight // !== null//
     ) {
-      // Guardar el equipo en localStorage
-      const equipmentToSave = {
-        ...this.equipment,
-      };
-      this.inventoryService.saveEquipment(equipmentToSave);
 
-      // Emitir el evento (si es necesario)
-      this.equipmentRegistered.emit(equipmentToSave);
 
+      const dataInventory = {
+        nombre: this.equipment.name,
+        modelo: this.equipment.model,
+        descripcion: this.equipment.description,
+        estado: this.equipment.state,
+        peso: this.equipment.weight
+      }
+
+      this.http.post<{ usuarioId: string }>(this.apiUrl, dataInventory).subscribe({  
+        next: (response) => {
+          console.log('Empleado guardado con éxito:', response);
+          this.router.navigate(['/employee-list']);
+        },
+        error: (error) => {
+          console.error('Error al guardar el empleado:', error);
+        },
+      });
+      
       // Reiniciar el formulario
       this.equipment = {
-        idEquipment: '',
         name: '',
         model: '',
         description: '',
-        registrationDate: '',
         state: '',
         weight: '',
       };
 
       // Navegar al listado
-      this.router.navigate(['/inventory-list']);
+      //this.router.navigate(['/inventory-list']);
       alert('Equipo registrado con éxito!');
     } else {
       alert('Por favor llena todos los campos obligatorios.');

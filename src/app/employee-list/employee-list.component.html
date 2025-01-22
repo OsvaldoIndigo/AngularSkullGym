@@ -1,26 +1,30 @@
 <div class="employee-list">
-    <h2>Lista de Empleados</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Correo</th>
-          <th>Teléfono</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let employee of colaboradores">
-          <td>{{ employee.id }}</td>
-          <td>{{ employee.nombre_completo }}</td>
-          <td>{{ employee.correo_electronico }}</td> 
-          <td>{{ employee.telefono }}</td>
-          <td>
-            <button (click)="viewDetails(employee.id)">Ver Detalles</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
+  <h2>Lista de Empleados</h2>
+
+  <div *ngIf="isLoading">Cargando empleados...</div>
+  <div *ngIf="!isLoading && colaboradores.length === 0">No hay empleados registrados.</div>
+
+  <table *ngIf="!isLoading && colaboradores.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Teléfono</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of colaboradores">
+        <td>{{ employee.id }}</td>
+        <td>{{ employee.nombre_completo }}</td>
+        <td>{{ employee.correo_electronico }}</td>
+        <td>{{ employee.telefono }}</td>
+        <td>
+          <button (click)="viewDetails(employee.id)">Ver Detalles</button>
+          <button (click)="deleteEmployee(employee.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

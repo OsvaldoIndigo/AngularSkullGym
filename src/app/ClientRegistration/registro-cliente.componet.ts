@@ -12,7 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { Router, RouterModule } from '@angular/router';
-import { ClientService } from '../client-detail/client.services';
+import { HttpClient } from '@angular/common/http';
 @Component({
   standalone: true,
   selector: 'app-registro-cliente',
@@ -33,15 +33,20 @@ export class RegistroClienteComponent {
   public registroForm: FormGroup;
   @Output() registroCompletado = new EventEmitter<any>();
 
+  private apiUrl = 'http://localhost:3000/crear-cliente';
+
+
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private clientService: ClientService
+        private http: HttpClient, // HttpClient injection
+  
   ) {
     this.registroForm = this.fb.group({
-      idUsuario: ['', Validators.required],
       nombreCompleto: ['', Validators.required],
       correoElectronico: ['', [Validators.required, Validators.email]],
+      contrasena: ['', Validators.required],
       telefono: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
       fechaNacimiento: ['', Validators.required],
       direccion: ['', Validators.required],
@@ -53,20 +58,32 @@ export class RegistroClienteComponent {
 
   onSubmit() {
     if (this.registroForm.valid) {
-      const clientData = this.registroForm.value;
-      console.log('Formulario válido', clientData);
+      const colabData = this.registroForm.value;
 
-      // Guardar datos a través del servicio
-      this.clientService.saveClient(clientData);
+      const dataEmpleado = {
+        nombreCompleto: colabData.nombreCompleto,
+        correoElectronico: colabData.correoElectronico,
+        contrasena: colabData.contrasena,
+        telefono: colabData.telefono,
+        fechaNacimiento: colabData.fechaNacimiento,
+        direccion: colabData.direccion,
+        tipoMembresia: colabData.tipoMembresia,
+        TipoDinamica: colabData.TipoDinamica,
+        fechaInicioMembresia: colabData.fechaInicioMembresia
+      };
 
-      // Emitir evento de registro completado
-      this.registroCompletado.emit(clientData);
-
-      // Redirigir al componente de detalles del cliente
-      this.router.navigate(['/client-detail', clientData.idUsuario]);
+      this.http.post<{ usuarioId: string }>(this.apiUrl, dataEmpleado).subscribe({  
+        next: (response) => {
+          console.log('Empleado guardado con éxito:', response);
+          this.router.navigate(['/employee-list']);
+        },
+        error: (error) => {
+          console.error('Error al guardar el empleado:', error);
+        },
+      });
     } else {
-      console.log('Formulario no válido');
-      // Aquí puedes agregar más lógica para mostrar errores al usuario
+      console.log('Formulario no válido ');
     }
   }
 }
+

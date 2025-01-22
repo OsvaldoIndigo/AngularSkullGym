@@ -1,37 +1,45 @@
 <div [ngStyle]="{ 'background-color': '#f4f4f4' }">
   <h2>Detalles del Equipo</h2>
   <div *ngIf="equipmentData; else noData">
-    <table>
-      <tr>
-        <th>ID</th>
-        <td>{{ equipmentData.idEquipment }}</td>
-      </tr>
-      <tr>
-        <th>Nombre</th>
-        <td>{{ equipmentData.name }}</td>
-      </tr>
-      <tr>
-        <th>Modelo</th>
-        <td>{{ equipmentData.model }}</td>
-      </tr>
-      <tr>
-        <th>Descripción</th>
-        <td>{{ equipmentData.description }}</td>
-      </tr>
-      <tr>
-        <th>Fecha de Registro</th>
-        <td>{{ equipmentData.registrationDate }}</td>
-      </tr>
-      <tr>
-        <th>Estado</th>
-        <td>{{ equipmentData.state }}</td>
-      </tr>
-      <tr>
-        <th>Peso</th>
-        <td>{{ equipmentData.weight }} kg</td>
-      </tr>
-    </table>
-    <button (click)="goBack()">Regresar al listado</button>
+    <form (ngSubmit)="updateEquipment()">
+      <table>
+        <tr>
+          <th>ID</th>
+          <td>{{ equipmentData.id }}</td>
+        </tr>
+        <tr>
+          <th>Nombre</th>
+          <td><input type="text" [(ngModel)]="equipmentData.nombre" name="nombre" /></td>
+        </tr>
+        <tr>
+          <th>Modelo</th>
+          <td><input type="text" [(ngModel)]="equipmentData.modelo" name="modelo" /></td>
+        </tr>
+        <tr>
+          <th>Descripción</th>
+          <td><input type="text" [(ngModel)]="equipmentData.descripcion" name="descripcion" /></td>
+        </tr>
+        <tr>
+          <th>Fecha de Registro</th>
+          <td>{{ equipmentData.fecha_registro }}</td>
+        </tr>
+        <tr>
+          <th>Estado</th>
+          <td>
+            <select [(ngModel)]="equipmentData.estado" name="estado">
+              <option value="activo">Activo</option>
+              <option value="inactivo">Inactivo</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th>Peso</th>
+          <td><input type="number" [(ngModel)]="equipmentData.peso" name="peso" /></td>
+        </tr>
+      </table>
+      <button type="submit">Actualizar</button>
+      <button type="button" (click)="goBack()">Regresar al listado</button>
+    </form>
   </div>
   <ng-template #noData>
     <p>No se encontró información para este equipo.</p>

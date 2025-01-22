@@ -1,54 +1,90 @@
 <div class="detalle-colaborador-container">
-    <h2>Detalles del Empleado</h2>
-  
-    <table *ngIf="colabData" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <h2>Detalles del Empleado</h2>
+
+  <!-- Mostrar mensaje de carga mientras se obtienen los detalles -->
+  <p *ngIf="isLoading">Cargando detalles del empleado...</p>
+
+  <!-- Mostrar formulario con datos del empleado -->
+  <form *ngIf="colabData" [formGroup]="employeeForm" (ngSubmit)="onUpdate()">
+    <table mat-table [dataSource]="[colabData]" class="mat-elevation-z8">
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>ID</th>
         <td mat-cell *matCellDef="let element">{{ element.id }}</td>
       </ng-container>
-  
+
       <ng-container matColumnDef="nombre_completo">
         <th mat-header-cell *matHeaderCellDef>Nombre Completo</th>
-        <td mat-cell *matCellDef="let element">{{ element.nombre_completo }}</td>
+        <td mat-cell *matCellDef="let element">
+          <input matInput formControlName="nombre_completo" />
+        </td>
       </ng-container>
-  
+
       <ng-container matColumnDef="rol_empresa">
         <th mat-header-cell *matHeaderCellDef>Rol en la Empresa</th>
-        <td mat-cell *matCellDef="let element">{{ element.rol_empresa }}</td>
+        <td mat-cell *matCellDef="let element">
+          <input matInput formControlName="rol_empresa" />
+        </td>
       </ng-container>
-  
+
       <ng-container matColumnDef="correo_electronico">
         <th mat-header-cell *matHeaderCellDef>Correo Electrónico</th>
-        <td mat-cell *matCellDef="let element">{{ element.correo_electronico }}</td>
+        <td mat-cell *matCellDef="let element">
+          <input matInput formControlName="correo_electronico" />
+        </td>
       </ng-container>
-  
+
       <ng-container matColumnDef="telefono">
         <th mat-header-cell *matHeaderCellDef>Teléfono</th>
-        <td mat-cell *matCellDef="let element">{{ element.telefono }}</td>
+        <td mat-cell *matCellDef="let element">
+          <input matInput formControlName="telefono" />
+        </td>
       </ng-container>
-  
+
       <ng-container matColumnDef="fecha_nacimiento">
         <th mat-header-cell *matHeaderCellDef>Fecha de Nacimiento</th>
-        <td mat-cell *matCellDef="let element">{{ element.fecha_nacimiento }}</td>
+        <td mat-cell *matCellDef="let element">
+          <input matInput formControlName="fecha_nacimiento" type="date" />
+        </td>
       </ng-container>
-  
+
       <ng-container matColumnDef="direccion">
         <th mat-header-cell *matHeaderCellDef>Dirección</th>
-        <td mat-cell *matCellDef="let element">{{ element.direccion }}</td>
+        <td mat-cell *matCellDef="let element">
+          <input matInput formControlName="direccion" />
+        </td>
       </ng-container>
-  
+
+      <ng-container matColumnDef="tipo_usuario">
+        <th mat-header-cell *matHeaderCellDef>Tipo Usuario</th>
+        <td mat-cell *matCellDef="let element">
+          <input matInput formControlName="tipo_usuario" />
+        </td>
+      </ng-container>
+
       <ng-container matColumnDef="salario">
         <th mat-header-cell *matHeaderCellDef>Salario</th>
-        <td mat-cell *matCellDef="let element">{{ element.salario }}</td>
+        <td mat-cell *matCellDef="let element">
+          <input matInput formControlName="salario" type="number" />
+        </td>
       </ng-container>
-  
+
       <ng-container matColumnDef="fecha_ingreso">
         <th mat-header-cell *matHeaderCellDef>Fecha de Ingreso</th>
-        <td mat-cell *matCellDef="let element">{{ element.fecha_ingreso }}</td>
+        <td mat-cell *matCellDef="let element">
+          <input matInput formControlName="fecha_ingreso" type="date" />
+        </td>
       </ng-container>
-  
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-  </div>
-  
+
+    <!-- Botón de Actualizar -->
+    <div style="margin-top: 20px; text-align: right;">
+      <button mat-raised-button color="primary" type="submit" [disabled]="employeeForm.invalid">
+        Actualizar
+      </button>
+    </div>
+    
+  </form>
+</div>

@@ -6,67 +6,89 @@
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <!-- ID Usuario Column -->
-      <ng-container matColumnDef="idUsuario">
+      <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>ID Usuario</th>
-        <td mat-cell *matCellDef="let element">{{ element.idUsuario }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
       </ng-container>
 
       <!-- Nombre Completo Column -->
-      <ng-container matColumnDef="nombreCompleto">
+      <ng-container matColumnDef="nombre_completo">
         <th mat-header-cell *matHeaderCellDef>Nombre Completo</th>
-        <td mat-cell *matCellDef="let element">{{ element.nombreCompleto }}</td>
+        <td mat-cell *matCellDef="let element">
+          <input matInput [(ngModel)]="element.nombre_completo" />
+        </td>
       </ng-container>
 
       <!-- Correo Electrónico Column -->
-      <ng-container matColumnDef="correoElectronico">
+      <ng-container matColumnDef="correo_electronico">
         <th mat-header-cell *matHeaderCellDef>Correo Electrónico</th>
         <td mat-cell *matCellDef="let element">
-          {{ element.correoElectronico }}
+          <input matInput [(ngModel)]="element.correo_electronico" />
         </td>
       </ng-container>
+
+            <!-- Contraseña Column -->
+            <ng-container matColumnDef="contrasena">
+              <th mat-header-cell *matHeaderCellDef>Contraseña</th>
+              <td mat-cell *matCellDef="let element">
+                <input matInput [(ngModel)]="element.contrasena" />
+              </td>
+            </ng-container>
 
       <!-- Teléfono Column -->
       <ng-container matColumnDef="telefono">
         <th mat-header-cell *matHeaderCellDef>Teléfono</th>
-        <td mat-cell *matCellDef="let element">{{ element.telefono }}</td>
+        <td mat-cell *matCellDef="let element">
+          <input matInput [(ngModel)]="element.telefono" />
+        </td>
       </ng-container>
 
       <!-- Fecha de Nacimiento Column -->
-      <ng-container matColumnDef="fechaNacimiento">
+      <ng-container matColumnDef="fecha_nacimiento">
         <th mat-header-cell *matHeaderCellDef>Fecha de Nacimiento</th>
         <td mat-cell *matCellDef="let element">
-          {{ element.fechaNacimiento }}
+          <input matInput type="date" [(ngModel)]="element.fecha_nacimiento" />
         </td>
       </ng-container>
 
       <!-- Dirección Column -->
       <ng-container matColumnDef="direccion">
         <th mat-header-cell *matHeaderCellDef>Dirección</th>
-        <td mat-cell *matCellDef="let element">{{ element.direccion }}</td>
+        <td mat-cell *matCellDef="let element">
+          <input matInput [(ngModel)]="element.direccion" />
+        </td>
       </ng-container>
 
       <!-- Tipo de Membresía Column -->
-      <ng-container matColumnDef="tipoMembresia">
+      <ng-container matColumnDef="tipo_membresia">
         <th mat-header-cell *matHeaderCellDef>Tipo de Membresía</th>
-        <td mat-cell *matCellDef="let element">{{ element.tipoMembresia }}</td>
+        <td mat-cell *matCellDef="let element">
+          <input matInput [(ngModel)]="element.tipo_membresia" />
+        </td>
       </ng-container>
 
       <!-- Fecha de Inicio de Membresía Column -->
-      <ng-container matColumnDef="fechaInicioMembresia">
+      <ng-container matColumnDef="fecha_inicio_membresia">
         <th mat-header-cell *matHeaderCellDef>Fecha de Inicio de Membresía</th>
         <td mat-cell *matCellDef="let element">
-          {{ element.fechaInicioMembresia }}
+          <input matInput type="date" [(ngModel)]="element.fecha_inicio_membresia" />
         </td>
       </ng-container>
 
       <!-- Dinámica de Entrenamiento Column -->
-      <ng-container matColumnDef="TipoDinamica">
+      <ng-container matColumnDef="tipo_dinamica">
         <th mat-header-cell *matHeaderCellDef>Dinamica de Entrenamiento</th>
-        <td mat-cell *matCellDef="let element">{{ element.TipoDinamica }}</td>
+        <td mat-cell *matCellDef="let element">
+          <input matInput [(ngModel)]="element.tipo_dinamica" />
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
+
+    <button mat-raised-button color="primary" (click)="updateClientDetails()">
+      Actualizar
+    </button>
   </div>
 </div>

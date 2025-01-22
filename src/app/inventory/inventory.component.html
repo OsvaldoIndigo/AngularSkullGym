@@ -4,10 +4,6 @@
   #equipmentForm="ngForm"
   class="equipment-form"
 >
-  <div class="form-group">
-    <label for="idEquipment">ID del Equipo:</label>
-    <input id="idEquipment" type="text" [(ngModel)]="equipment.idEquipment" name="idEquipment" required />
-  </div>
 
   <div class="form-group">
     <label for="name">Nombre del Equipo:</label>
@@ -38,16 +34,6 @@
       [(ngModel)]="equipment.description"
       name="description"
     ></textarea>
-  </div>
-
-  <div class="form-group">
-    <label for="registrationDate">Fecha de Registro:</label>
-    <input
-      id="registrationDate"
-      type="date"
-      [(ngModel)]="equipment.registrationDate"
-      name="registrationDate"
-    />
   </div>
 
   <div class="form-group">

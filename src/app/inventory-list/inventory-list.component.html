@@ -15,15 +15,16 @@
     </thead>
     <tbody>
       <tr *ngFor="let equipment of equipmentList">
-        <td>{{ equipment.idEquipment }}</td>
-        <td>{{ equipment.name }}</td>
-        <td>{{ equipment.model }}</td>
-        <td>{{ equipment.description }}</td>
-        <td>{{ equipment.registrationDate || 'No registrada' }}</td>
-        <td>{{ equipment.state }}</td>
-        <td>{{ equipment.weight }} libras</td>
+        <td>{{ equipment.id }}</td>
+        <td>{{ equipment.nombre }}</td>
+        <td>{{ equipment.modelo }}</td>
+        <td>{{ equipment.descripcion }}</td>
+        <td>{{ equipment.fecha_registro || 'No registrada' }}</td>
+        <td>{{ equipment.estado }}</td>
+        <td>{{ equipment.peso }} libras</td>
         <td>
-          <button (click)="viewDetails(equipment.idEquipment)">Ver Detalles</button>
+          <button (click)="viewDetails(equipment.id)">Ver Detalles</button>
+          <button (click)="deleteEquipament(equipment.id)">Eliminar Registro</button>
         </td>
       </tr>
     </tbody>

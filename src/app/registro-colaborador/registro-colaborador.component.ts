@@ -26,7 +26,7 @@ export class RegistroColaboradorComponent {
   ) {
     this.registroForm = this.fb.group({
       nameCollaborating: ['', Validators.required],
-      roleCollaborating: ['', Validators.required],
+      roleCollaborating: ['', Validators.required], // Debe tener un valor inicial que no sea inválido
       correoElectronico: ['', [Validators.required, Validators.email]],
       contrasena: ['', Validators.required],
       telefono: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
@@ -35,6 +35,7 @@ export class RegistroColaboradorComponent {
       salaryCollaborating: ['', Validators.required],
       dateOfEntry: ['', Validators.required],
     });
+    
   }
 
   onSubmit() {
