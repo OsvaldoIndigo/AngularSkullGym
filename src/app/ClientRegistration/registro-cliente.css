@@ -1,37 +1,93 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom, #222, #444), url('/AngularSkullGym/src/assets/images/skull2.png');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  color: #fff;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .container {
-    width: 50%;
-    margin: 20px auto;
-  }
-  
-  form div {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    font-weight: bold;
-  }
-  
-  input, select, textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button:disabled {
-    background-color: #ccc;
-  }
-  
-  div span {
-    color: red;
-  }
-  
+  background: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+h2 {
+  font-size: 28px;
+  color: whitesmoke; /* Color temático */
+  margin-bottom: 20px;
+}
+
+div {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+label {
+  color: whitesmoke;
+  display: block;
+  font-weight: lighter;
+  margin-bottom: 5px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #555;
+  color: #fff;
+  font-size: 14px;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 5px #ff6b00;
+}
+
+textarea {
+  height: 100px; /* Altura para el campo de dirección */
+}
+
+button {
+  background: whitesmoke;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+  margin-top: 20px;
+}
+
+button:hover {
+  background: #e65c00;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  background: #888;
+  cursor: not-allowed;
+}
+
+div span {
+  color: #ff6b00;
+  font-size: 12px;
+  display: block;
+  margin-top: 5px;
+}

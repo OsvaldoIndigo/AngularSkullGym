@@ -1,34 +1,79 @@
-.client-list {
-    padding: 1rem;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  thead {
-    background-color: #007BFF;
-    color: white;
-  }
-  
-  td, th {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-  }
-  
-  button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 0.5rem;
-    cursor: pointer;
-    border-radius: 3px;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom, #222, #444), url('/AngularSkullGym/src/assets/images/skull2.png');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  color: #fff;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.inventory-list {
+  background: rgba(0, 0, 0, 0.7); /* Fondo oscuro para la lista */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 80%;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+h2 {
+  font-size: 28px;
+  color: #ff6b00;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #555;
+  text-align: center;
+}
+
+th {
+  background-color: #ff6b00;
+  color: white;
+  font-weight: lighter;
+}
+
+td {
+  background-color: #333;
+}
+
+button {
+  background: #ff6b00;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #e65c00;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  background: #888;
+  cursor: not-allowed;
+}
+
+button:focus {
+  outline: none;
+}
